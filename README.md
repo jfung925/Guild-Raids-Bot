@@ -1,4 +1,4 @@
-**Wynncraft Guild Raid Bot — Bot-Hosting.net edition**
+**Wynncraft Guild Raid Bot**
 
 Start with **CLOUD_SETUP.md** for the complete cloud setup. This edition uses JavaScript and Node.js, with a command/helper/interval organization inspired by the oxids bot example. SETUP.md explains the files and optional local testing. REFERENCE.md records the sources reviewed.
 
@@ -27,6 +27,3 @@ The ZIP has no enclosing project folder: `index.js` and `package.json` are at it
 
 This starter serves one Discord server and one Wynncraft guild. Run one process for it. It reports cumulative counters and does not calculate weekly totals or store raid history. The saved JSON contains the shared message's identity only.
 
-**Validation**
-
-Twenty-one automated checks passed using the pinned packages on Node.js 24.19.0. They cover parsing, pagination, real local HTTP requests, caching, failures, Discord command handling, and state recovery. No live Discord login or Bot-Hosting.net deployment was performed. Follow the cloud guide's API and Discord checks to verify your own configuration.
