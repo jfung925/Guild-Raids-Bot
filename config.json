@@ -1,0 +1,9 @@
+{
+  "token": "---",
+  "discordServerId": "---",
+  "guildName": "---",
+  "leaderboardChannelId": "0",
+  "refreshSeconds": 300,
+  "dataDirectory": "data",
+  "mode": "bot"
+}
