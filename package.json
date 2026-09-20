@@ -5,7 +5,9 @@
   "description": "A guild raid leaderboard for Discord, prepared for Bot-Hosting.net.",
   "main": "index.js",
   "type": "commonjs",
-  "engines": { "node": ">=24.17.0" },
+  "engines": {
+    "node": ">=24.17.0"
+  },
   "scripts": {
     "start": "node index.js",
     "check:config": "node index.js --check-config",
@@ -14,6 +16,7 @@
   },
   "dependencies": {
     "discord.js": "14.27.0",
-    "dotenv": "18.0.1"
+    "dotenv": "18.0.1",
+    "javascript-lp-solver": "^1.0.3"
   }
 }
