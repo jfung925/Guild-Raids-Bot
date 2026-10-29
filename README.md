@@ -1,6 +1,6 @@
 # Wynncraft Guild Raids Bot
 
-A Node.js Discord bot for Wynncraft guild raid reports, player profiles, mount feeding calculators, a mythic identification simulator, Wordle, aspect allocations and Annihilation party signups.
+A Node.js Discord bot for Wynncraft guild raid reports, player profiles, mount feeding calculators, annihilation party signups, aspect allocations and a few miscellaneous for fun commands: a mythic identification simulator and wordle
 
 ## Commands
 
