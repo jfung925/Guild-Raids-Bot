@@ -1,8 +1,8 @@
 {
   "token": "PASTE_YOUR_BOT_TOKEN_HERE",
   "discordServerIds": [
-    "1550947785120026726",
-    "1370812201899917322"
+    "Server ID #1",
+    "Server ID #2"
   ],
   "guildName": "Pavilion",
   "leaderboardChannelId": "0",
