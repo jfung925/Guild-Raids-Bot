@@ -1,0 +1,13 @@
+{
+  "token": "PASTE_YOUR_BOT_TOKEN_HERE",
+  "discordServerIds": [
+    "1550947785120026726",
+    "1370812201899917322"
+  ],
+  "guildName": "Pavilion",
+  "leaderboardChannelId": "0",
+  "refreshSeconds": 300,
+  "dataDirectory": "data",
+  "raidHistoryDirectory": "data/pavilion",
+  "mode": "bot"
+}

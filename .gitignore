@@ -1,0 +1,36 @@
+# Local credentials and server-specific policies
+/config.json
+/.env
+/.env.*
+!/.env.example
+/annihilation-organizers.json
+/aspects-exclusions.json
+
+# Dependencies and package-manager cache
+/node_modules/
+/.npm/
+
+# Runtime data stays on the host. Include only the named public assets.
+/data/*
+!/data/gamble-font.ttf
+!/data/gamble-font-OFL.txt
+!/data/gamble-roboto-mono.ttf
+!/data/gamble-roboto-mono-OFL.txt
+!/data/gamble-items.json
+
+# Databases, backups, exports, logs and temporary files
+*.sqlite
+*.sqlite-*
+*.sqlite.*
+*.db
+*.db-*
+*.bak
+*.log
+*.tmp
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+/coverage/
+.DS_Store
+Thumbs.db

@@ -84,7 +84,7 @@ async function main(args = process.argv.slice(2)) {
     rest: { retries: 0, timeout: 20000 },
   });
 
-    // Commands and background refreshes share the same history database.
+  // Commands and background refreshes share the same history database.
   // The wrapper preserves the existing API cache and rate-limit handling.
   const history = new RaidHistory(settings);
 
@@ -99,7 +99,7 @@ async function main(args = process.argv.slice(2)) {
   };
 
   log.info(
-    'Raid history enabled; saved in the data folder as raid-history.sqlite.'
+    'Raid history enabled for ' + settings.guildName + '; saved at ' + settings.historyPath
   );
   let refreshTask = null;
   let closing = false;
@@ -146,12 +146,12 @@ async function main(args = process.argv.slice(2)) {
     void (async () => {
       if (closing) return;
 
-      await registerCommands(ready, commands, settings.serverId);
+      await registerCommands(ready, commands, settings.serverIds);
 
       if (closing) return;
 
       log.info('Registered ' + commands.size
-        + ' command(s) in server ' + settings.serverId + '.');
+        + ' command(s) in servers ' + settings.serverIds.join(', ') + '.');
 
       log.info('Connected as ' + ready.user.tag
         + '. Try /ping, then /guildraids.');

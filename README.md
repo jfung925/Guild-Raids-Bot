@@ -1,29 +1,58 @@
-**Wynncraft Guild Raid Bot**
+# Wynncraft Guild Raids Bot
 
-Start with **CLOUD_SETUP.md** for the complete cloud setup. This edition uses JavaScript and Node.js, with a command/helper/interval organization inspired by the oxids bot example. SETUP.md explains the files and optional local testing. REFERENCE.md records the sources reviewed.
+A Node.js Discord bot for Wynncraft guild raid reports, player profiles, mount feeding calculators, a mythic identification simulator, Wordle, aspect allocations and Annihilation party signups.
 
-| Item | Value |
+## Commands
+
+| Command | Purpose |
 | --- | --- |
-| Hosting runtime | Node.js 24.17.0 or newer; tested with 24.19.0 |
-| Hosting Entry File / STARTUP_FILE | `index.js` |
-| Normal run mode | `RUN_MODE=bot` |
-| Packages | `discord.js` 14.27.0 and `dotenv` 18.0.1 |
-| Dependency files | `package.json` and `package-lock.json` |
-| Saved state | `data/leaderboard.json` by default |
-| Main command | `/guildraids` |
-| Other commands | `/ping` and `/help` |
+| `/guildraids` | Guild raid totals, saved-history period reports, player lookup and pagination |
+| `/aspects` | Raid-based aspect allocation with an editable exclusion file |
+| `/annihilation` | Public signup pool, party management, manual party creation and role-balanced randomization |
+| `/profile` | Wynncraft player statistics |
+| `/wyvern`, `/horse`, `/adasaur` | Mount feeding calculators |
+| `/wyvernmax`, `/horsemax`, `/adasaurmax` | Feeding calculations with eligible higher-level materials |
+| `/gamble` | Mythic identification simulation, saved rolls and usage counters |
+| `/wordle` | Public English-word puzzles with requester-only guessing controls |
+| `/ping`, `/help` | Bot response and command information |
 
-The bot discovers the guild roster automatically. It shows each current member's cumulative raids in this guild, or their guild raids across all guilds. It can edit one shared first-page leaderboard approximately every five minutes. Ordinary slash-command replies remain snapshots. Private or missing values show as Unavailable.
+## Runtime and hosting
 
-**What to configure**
+- Node.js **24.17.0 or newer**, as required by package.json.
+- Bot-Hosting startup/entry file: **index.js**.
+- Install dependencies with `npm ci`; start with `npm start`.
+- Use `npm run check:config` for configuration validation.
+- One process can register commands in multiple configured Discord servers while tracking the configured Wynncraft guild.
+- `leaderboardChannelId: "0"` disables automatic leaderboard posting. Background raid tracking continues at the configured refresh interval.
 
-Supply your Discord bot token, Discord server ID, and full Wynncraft guild name. Begin with leaderboard channel ID `0`; enable automatic updates after command testing. Use the hosting environment manager, `.env`, or `config.json`. Configuration priority and every setting are documented in SETUP.md.
+## First-time configuration
 
-**Download contents**
+Copy these templates to their local names and then edit the local files:
 
-The ZIP has no enclosing project folder: `index.js` and `package.json` are at its root for direct upload. It contains source code, comments, tests, a dependency lockfile, configuration examples, and guides. Dependencies are installed by the host.
+| Repository template | Local file |
+| --- | --- |
+| config.example.json | config.json |
+| annihilation-organizers.example.json | annihilation-organizers.json |
+| aspects-exclusions.example.json | aspects-exclusions.json |
 
-**Scope**
+Put the Discord bot token in local config.json, a local .env file, or the host's environment settings. Keep Discord IDs as quoted strings. The supplied JSON template is set up for the testing and Pavilion servers; change those IDs for a different installation.
 
-This starter serves one Discord server and one Wynncraft guild. Run one process for it. It reports cumulative counters and does not calculate weekly totals or store raid history. The saved JSON contains the shared message's identity only.
+The organizer template authorizes nobody until actual Discord user IDs or role IDs are added. Fill in the desired aspects exclusion list in the local exclusions file. The optional .env.example documents environment settings; use one configuration method consistently to avoid stale environment values overriding JSON.
 
+The older CLOUD_SETUP.md and SETUP.md are retained for reference. They describe earlier versions; use the current templates and this README for the current configuration and feature list.
+
+## Data and assets
+
+Keep the host's existing data folder when updating. It contains raid history, saved gamble rolls and counters, Wordle state, ping totals and Annihilation signups. These SQLite databases and backups are intentionally excluded from Git.
+
+The data files committed here are only the named font files, their license texts and the replaceable public item-catalog cache used by the simulator. The bot's JavaScript, dependency versions and supplied tests are unchanged from the uploaded host export.
+
+## Updating the existing GitHub repository
+
+Use the extracted contents of the clean upload ZIP to replace/add files at the repository root. The project should have index.js and package.json at the top level, not inside another GitHub-Upload folder. Upload the extracted files and folders, not the ZIP itself.
+
+The export's archived Git index was tracking config.json. Check the live repository and remove that file from Git if present; adding .gitignore does not untrack it. A file upload also does not delete old files omitted from the upload. If a real token was ever committed, reset it and update the host because deleting the file does not erase commit history.
+
+Before a host pulls a commit that deletes tracked config.json, save a private backup of the host configuration and restore it afterward, or first move the settings to host environment variables. Also keep a separate backup of the existing data folder. Never restore an older database over the running bot's current data just to update its source code.
+
+No push or deployment is performed by preparing this package.
