@@ -1,13 +1,3 @@
-**Implementation references — reviewed September 19, 2026**
-
-**Requested example**
-
-[oxids/oxids-bot](https://github.com/oxids/oxids-bot), reviewed at commit [aaed254b70ecf74dd80a489a4161bb2c984c83b7](https://github.com/oxids/oxids-bot/commit/aaed254b70ecf74dd80a489a4161bb2c984c83b7).
-
-The reviewed files included `index.js`, `package.json`, `config.example.json`, `update-commands.js`, `commands/guilds/guild-xp-leaderboard.js`, `helpers/wynn-api.helper.js`, `helpers/file.helper.js`, and `intervals/xp-tracker.js`.
-
-This starter is an independent implementation inspired by that project's CommonJS entry file, per-command `data`/`execute` modules, API helpers, interval folder, and restartable leaderboard concept. It implements guild raid counters for the user's requested use case. Command registration runs during startup because the target host's current console does not provide shell access. All code in this package was written for this starter; the reference project itself is not bundled.
-
 **Official hosting documentation**
 
 - [Current panel](https://bot-hosting.net/docs/guides/the-new-panel)
